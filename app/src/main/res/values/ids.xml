@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tv_Register" type="id" />
+    <item name="registerEmail" type="id" />
+    <item name="registerPersonName" type="id" />
+    <item name="registerLevel" type="id" />
+    <item name="registerPassword" type="id" />
+    <item name="buttonRegisterAccount" type="id" />
+    <item name="menuId" type="id" />
+    <item name="menuPrice" type="id" />
+    <item name="buttonAddImage" type="id" />
+    <item name="buttonSaveMenu" type="id" />
+</resources>
