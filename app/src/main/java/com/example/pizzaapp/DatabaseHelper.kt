@@ -5,8 +5,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.widget.Toast
+import model.MenuModel
 
 class DatabaseHelper(var context: Context): SQLiteOpenHelper (
     context, DATABASE_NAME, null, DATABASE_VERSION
@@ -23,6 +23,23 @@ class DatabaseHelper(var context: Context): SQLiteOpenHelper (
         private val COLUMN_NAME = "name"
         private val COLUMN_LEVEL = "level"
         private val COLUMN_PASSWORD = "password"
+
+        //tabel menu
+        private val TABLE_MENU = "menu"
+
+        //colomn menu table
+        private val COLUMN_ID_MENU ="idmenu"
+        private val COLUMN_NAMA_MENU = "menuName"
+        private val COLUMN_PRICE_MENU = "price"
+        private val COLUMN_IMAGE = "photo"
+
+        private val CREATE_MENU_TABLE = ("CREATE TABLE " + TABLE_MENU + "("
+                + COLUMN_ID_MENU + " INT PRIMARY KEY, "+ COLUMN_NAMA_MENU +" TEXT, "
+                + COLUMN_PRICE_MENU + " INT, "+ COLUMN_IMAGE +" BLOB)")
+
+        private val DROP_MENU_TABLE = "DROP TABLE IF EXISTS $TABLE_MENU"
+
+
     }
 
     //create table account sql query
@@ -35,10 +52,13 @@ class DatabaseHelper(var context: Context): SQLiteOpenHelper (
 
     override fun onCreate(p0: SQLiteDatabase?) {
         p0?.execSQL(CREATE_ACCOUNT_TABLE)
+        p0?.execSQL(CREATE_MENU_TABLE)
+        p0?.execSQL(INSERT_ACCOUNT_TABLE)
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
         p0?.execSQL(CREATE_ACCOUNT_TABLE)
+        p0?.execSQL(DROP_MENU_TABLE)
         onCreate(p0)
     }
 
@@ -82,6 +102,30 @@ class DatabaseHelper(var context: Context): SQLiteOpenHelper (
         else {
             Toast.makeText(context, "Register Success, " +
             "please login using your new account", Toast.LENGTH_SHORT).show()
+        }
+        db.close()
+    }
+
+    fun addMenu(menu: MenuModel){
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(COLUMN_ID_MENU, menu.id)
+        values.put(COLUMN_NAMA_MENU, menu.name)
+        values.put(COLUMN_PRICE_MENU, menu.price)
+        //prepare image
+        val byteOutputStream = ByteArrayOutputStream()
+        val imageInByte:ByteArray
+        menu.image.compress(Bitmap.CompressFormat.JPEG, 100,byteOutputStream)
+        imageInByte = byteOutputStream.toByteArray()
+        values.put(COLUMN_IMAGE, imageInByte)
+
+        val result = db.insert(TABLE_MENU, null, values)
+        //show message
+        if (result==(0).toLong()){
+            Toast.makeText(context, "Add menu Failed", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            Toast.makeText(context, "Add menu Success",Toast.LENGTH_SHORT).show()
         }
         db.close()
     }
