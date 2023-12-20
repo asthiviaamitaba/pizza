@@ -122,11 +122,11 @@
         android:id="@+id/imageMenu"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/baseline_image_search_24"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_image_search_120"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"/>
 
     <Button
         android:id="@+id/buttonAddImage"
@@ -149,5 +149,7 @@
         android:backgroundTint="#D02C1A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageMenu" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

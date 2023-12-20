@@ -14,6 +14,10 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        //hide title bar
+        getSupportActionBar()?.hide()
+
+        //instance text
         val txtEmail: EditText = findViewById(R.id.registerEmail)
         val txtName: EditText = findViewById(R.id.registerPersonName)
         val txtLevel: EditText = findViewById(R.id.registerLevel)
@@ -21,6 +25,7 @@ class RegisterActivity : AppCompatActivity() {
         //instance button register
         val btnRegister: Button = findViewById(R.id.buttonRegisterAccount)
 
+        //event button save
         btnRegister.setOnClickListener{
             //object class databaseHelper
             val databaseHelper = DatabaseHelper (this)
@@ -48,6 +53,5 @@ class RegisterActivity : AppCompatActivity() {
                         "Your email alredy registered", Toast.LENGTH_SHORT)
             }
         }
-
     }
 }

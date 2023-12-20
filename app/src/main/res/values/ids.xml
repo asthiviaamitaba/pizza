@@ -10,4 +10,20 @@
     <item name="menuPrice" type="id" />
     <item name="buttonAddImage" type="id" />
     <item name="buttonSaveMenu" type="id" />
+    <item name="editImageMenu" type="id" />
+    <item name="editId" type="id" />
+    <item name="editName" type="id" />
+    <item name="editPrice" type="id" />
+    <item name="buttonEditImage" type="id" />
+    <item name="buttonSaveEditMenu" type="id" />
+    <item name="textEmailAccount" type="id" />
+    <item name="recyclerTransaksi" type="id" />
+    <item name="textTotalOrder" type="id" />
+    <item name="textTax" type="id" />
+    <item name="textTotalPrice" type="id" />
+    <item name="buttonPayNow" type="id" />
+    <item name="textViewTotalPurchase" type="id" />
+    <item name="textViewChange" type="id" />
+    <item name="editTextCash" type="id" />
+    <item name="buttonFinish" type="id" />
 </resources>

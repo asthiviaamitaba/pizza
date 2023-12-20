@@ -24,8 +24,6 @@ class FragmentMenu : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,13 +39,13 @@ class FragmentMenu : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_menu, container, false)
         val rvmenu:RecyclerView = view.findViewById(R.id.recyclerMenu)
-
-        //akses database
-        val dbHelper = DatabaseHelper(this.requireContext())
-        val list = dbHelper.showMenu()
-
+        //instance database helper
+        val databaseHelper = DatabaseHelper(this.requireContext())
+        //call function show data menu
+        val listData = databaseHelper.showMenu()
+        //set layout recycler view
         rvmenu.layoutManager = GridLayoutManager(activity,2)
-        rvmenu.adapter = MenuAdapter(list)
+        rvmenu.adapter = MenuAdapter(listData)
 
         return view
     }

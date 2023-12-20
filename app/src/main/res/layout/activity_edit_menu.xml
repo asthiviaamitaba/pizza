@@ -7,13 +7,27 @@
     tools:context=".EditMenuActivity">
 
     <TextView
+        android:id="@+id/editId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:text="Id"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="Add New Menu"
+        android:text="Edit Menu"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,21 +48,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <EditText
-        android:id="@+id/menuId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:inputType="number"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
@@ -60,10 +59,10 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuId" />
+        app:layout_constraintTop_toBottomOf="@+id/editId" />
 
     <EditText
-        android:id="@+id/menuName"
+        android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -88,10 +87,10 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuName" />
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
 
     <EditText
-        android:id="@+id/menuPrice"
+        android:id="@+id/editPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -116,38 +115,38 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/editPrice" />
 
     <ImageView
-        android:id="@+id/imageMenu"
+        android:id="@+id/editImageMenu"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/baseline_image_search_24"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_image_search_120"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"/>
 
     <Button
-        android:id="@+id/buttonAddImage"
+        android:id="@+id/buttonEditImage"
         android:layout_width="42dp"
         android:layout_height="40dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#D02C1A"
         android:text="+"
-        app:layout_constraintBottom_toBottomOf="@+id/imageMenu"
-        app:layout_constraintEnd_toEndOf="@+id/imageMenu" />
+        app:layout_constraintBottom_toBottomOf="@+id/editImageMenu"
+        app:layout_constraintEnd_toEndOf="@+id/editImageMenu" />
 
     <Button
-        android:id="@+id/buttonUpdateMenu"
+        android:id="@+id/buttonSaveEditMenu"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="Update"
+        android:text="Save"
         android:backgroundTint="#D02C1A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMenu" />
+        app:layout_constraintTop_toBottomOf="@+id/editImageMenu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

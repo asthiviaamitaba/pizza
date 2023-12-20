@@ -21,47 +21,37 @@ class LoginActivity : AppCompatActivity() {
         //instance text
         val txtUsername:EditText = findViewById(R.id.editTextEmail)
         val txtPassword:EditText = findViewById(R.id.editTextPassword)
+        val txtLinkRegister:TextView = findViewById(R.id.textViewRegister)
         //instance button login
         val btnLogin:Button = findViewById(R.id.buttonLogin)
-        val tvRegis:TextView = findViewById(R.id.buttonRegister)
+
+        //event saat textview register di-klik
+        txtLinkRegister.setOnClickListener {
+            val intentRegister = Intent(this@LoginActivity,
+                RegisterActivity::class.java)
+            startActivity(intentRegister)
+        }
 
         //event button login
         btnLogin.setOnClickListener {
+            //object class databaseHelper
             val databaseHelper = DatabaseHelper(this)
 
-            val data:String = databaseHelper.checkData("asthiviaoktandaamitaba@students.amikom.ac.id")
-            Toast.makeText(this@LoginActivity, "Result : " + data,
-                Toast.LENGTH_SHORT).show()
-            if(data == ""){
-                databaseHelper.addAccount("asthiviaoktandaamitaba@students.amikom.ac.id",
-                "Asthivia Oktanda A", "Cashier", "amikom")
-            }
             val email = txtUsername.text.toString().trim()
             val password = txtPassword.text.toString().trim()
 
-            val result:Boolean = databaseHelper.checkLogin(email, password)
-            if (result==true){
-                Toast.makeText(this@LoginActivity, "Login Success",
+            //check login
+            val result:Boolean = databaseHelper.checkLogin(email,password)
+            if (result == true){
+                Toast.makeText(this@LoginActivity,"Login Success ",
                     Toast.LENGTH_SHORT).show()
                 val intentLogin = Intent(this@LoginActivity,
                     MainActivity::class.java)
                 startActivity(intentLogin)
-            } else {
-                Toast.makeText(this@LoginActivity, "Login Failed, Try Again !!!",
+            }else{
+                Toast.makeText(this@LoginActivity,"Login Failed, Try Again !!!",
                     Toast.LENGTH_SHORT).show()
-                txtUsername.hint = "username"
-                txtPassword.hint = "password"
-                txtUsername.isFocused
-
             }
-
-        }
-
-        tvRegis.setOnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-            startActivity(intent)
         }
     }
-
-
 }

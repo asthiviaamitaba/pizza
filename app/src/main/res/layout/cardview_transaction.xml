@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="5dp"
-            android:src="@drawable/baseline_remove_24"
+            android:src="@drawable/ic_minus_24"
             app:layout_constraintStart_toEndOf="@+id/imageTransaksi"
             app:layout_constraintTop_toBottomOf="@+id/textHargaTransaksi" />
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
-            android:src="@drawable/plus_24"
+            android:src="@drawable/ic_plus_24"
             app:layout_constraintStart_toEndOf="@+id/textQtyTransaksi"
             app:layout_constraintTop_toBottomOf="@+id/textHargaTransaksi" />
 

@@ -36,38 +36,32 @@ class AddMenuActivity : AppCompatActivity() {
             pickImageGalery()
         }
 
+        val btnSaveMenu: Button = findViewById(R.id.buttonSaveMenu)
+
         btnSaveMenu.setOnClickListener {
             val databasehelper = DatabaseHelper(this, )
+
             val id : Int = textId.text.toString().toInt()
             val name : String = textName.text.toString().trim()
             val price : Int = textPrice.text.toString().toInt()
             val bitmapDrawable : BitmapDrawable = image.drawable as BitmapDrawable
             val bitmap : Bitmap = bitmapDrawable.bitmap
+
             val menuModel = MenuModel (id,name,price, bitmap)
             databasehelper.addMenu(menuModel)
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
-
-
-
     }
     private fun pickImageGalery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/"
         startActivityForResult(intent, IMAGE_REQUEST_CODE)
     }
-
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
             image.setImageURI(data?.data)
         }
     }
-
-
-
-
-
-
 }
